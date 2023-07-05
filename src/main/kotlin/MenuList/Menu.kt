@@ -11,11 +11,7 @@ abstract class Menu {
         while (true) {
             try {
                 val userInputMenuItem = Scanner(System.`in`).nextInt()
-                if (userInputMenuItem > amountElements) {
-                    println(errorMessage)
-                    continue
-                }
-                if (userInputMenuItem < 0) {
+                if ((userInputMenuItem > amountElements) || (userInputMenuItem < 0)) {
                     println(errorMessage)
                     continue
                 }
