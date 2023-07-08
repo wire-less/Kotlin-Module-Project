@@ -1,3 +1,9 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import ArchivesList.ArchivesMenu
+
+fun main() {
+    println("\n-= Приложение ЗАМЕТКИ =-\n")
+
+    val archiveMenu = ArchivesMenu()
+
+    archiveMenu.popupArchiveMenu()
 }
