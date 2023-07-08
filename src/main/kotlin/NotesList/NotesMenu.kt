@@ -9,12 +9,27 @@ class   NotesMenu: Menu() {
         get() = "\nСписок заметок:"
 
     fun addNote(notesMenu: MutableList<Notes>) {
+
+        var noteName: String
+        while (true)
+        {
         println("Введите название заметки")
-        val noteName = Scanner(System.`in`).nextLine()
+        noteName = Scanner(System.`in`).nextLine()
+            if (noteName.isNotBlank()) break
+            else println("Наименование заметки не может быть пустым")
+        }
+
+        while (true)
+        {
         println("Введите текст заметки")
         val noteText = Scanner(System.`in`).nextLine()
-        notesMenu.add(notesMenu.size - 1, Notes(noteName, noteText))
-        println("Заметка создана")
+            if (noteText.isNotBlank()) {
+                notesMenu.add(notesMenu.size - 1, Notes(noteName, noteText))
+                println("Заметка создана")
+                return
+            }
+            else println("Текст заметки не может быть пустым")
+    }
     }
 
     fun popupNotesMenu(notesMenu: MutableList<Notes>) {

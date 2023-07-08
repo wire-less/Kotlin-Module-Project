@@ -16,9 +16,21 @@ class ArchivesMenu: Menu() {
 
     fun addArchive() {
         println("Введите название архива")
-        val userInput = Scanner(System.`in`).nextLine()
-        archiveMenu.add(archiveMenu.size - 1, Archive(userInput, mutableListOf()))
-    }
+        val emptyArcMessage = "Наименование архива не может быть пустым. Введите название архива:"
+        while (true) {
+            try {
+                val userInput = Scanner(System.`in`).nextLine()
+                if (userInput.isBlank()) {
+                    println(emptyArcMessage)
+                    continue
+                }
+                archiveMenu.add(archiveMenu.size - 1, Archive(userInput, mutableListOf()))
+                return
+            } catch (e: java.util.InputMismatchException) {
+                println(emptyArcMessage)
+            }
+        }
+        }
 
     fun popupArchiveMenu(): MutableList<Notes> {
         while (true) {
