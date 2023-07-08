@@ -16,18 +16,18 @@ class ArchivesMenu: Menu() {
 
     fun addArchive() {
         println("Введите название архива")
-        val emptyArcMessage = "Наименование архива не может быть пустым. Введите название архива:"
+        val emptyArchiveNameMessage = "Наименование архива не может быть пустым. Введите название архива:"
         while (true) {
             try {
                 val userInput = Scanner(System.`in`).nextLine()
                 if (userInput.isBlank()) {
-                    println(emptyArcMessage)
+                    println(emptyArchiveNameMessage)
                     continue
                 }
                 archiveMenu.add(archiveMenu.size - 1, Archive(userInput, mutableListOf()))
                 return
             } catch (e: java.util.InputMismatchException) {
-                println(emptyArcMessage)
+                println(emptyArchiveNameMessage)
             }
         }
         }
